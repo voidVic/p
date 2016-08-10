@@ -26,7 +26,7 @@ var mail = {
       if(err){
         callbackError(err);
       }else{
-      //  sendMailToSender(data);
+        sendMailToSender(data);
         callbackSuccess(response);
       }
     });
