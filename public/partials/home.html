@@ -61,7 +61,7 @@
 		<div class="contact {{homeCtrl.navLinks[3].tense}}">
 			<div class="contact-bottom">
 				<ul class="social-icons">
-					<li ng-repeat="social in homeCtrl.socials" class="{{social.class}}"><a href="{{social.link}}" target="_blank"></a></li>
+					<a ng-repeat="social in homeCtrl.socials" href="{{social.link}}" target="_blank"  class="{{social.class}}"></a>
 				</ul>
 			</div>
 			<div class="contact-top">
