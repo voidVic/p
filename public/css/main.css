@@ -85,7 +85,7 @@ body{
 	box-shadow: 0 1px 5px #444;
 	background-color: var(--colorLight);
 	padding-top: 20px;
-	background-image: url('../images/pro-back.jpg');
+	background-image: url('../images/pro-Back.jpg');
 	background-size: cover;
 	color: var(--colorLight);
 }
@@ -351,7 +351,7 @@ body{
 	background-image: url('../images/google+.png');
 }
 .instagram{
-	background-image: url('../images/instagram.png');
+	background-image: url('../images/Instagram.png');
 }
 
 .linked-in:hover, .fb:hover, .google-plus:hover, .instagram:hover{
