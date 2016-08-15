@@ -1,6 +1,6 @@
 {
   "name": "voidVicProfile",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "description": "Ankit Sharma Personal Profile",
   "dependencies": {
     "body-parser": "~1.8.1",
