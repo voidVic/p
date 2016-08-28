@@ -13,9 +13,14 @@ router.post('/sendMail', function(req, res){
   mailService.send(contact, function(data){
     res.json({"message": data});
   }, function(data){
-    console.log(data);
+    //console.log(data);
     res.json({"message": data});
   });
+  /*testing msg, without actual mail*/
+//   setTimeout(function(){
+//   res.json({"message": {success: true, body: null}});
+// }, 3000);
+
 });
 
 module.exports = router;

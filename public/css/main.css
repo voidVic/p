@@ -318,9 +318,35 @@ body{
 .contact{
 	font-weight: normal;
 }
-
+.after-mail{
+	height: 100%;
+	width:100%;
+	padding-top: 40px;
+	position: absolute;
+	top:0;
+	left: 0;
+	background-color: var(--lightPrimary);
+	box-shadow: 0 1px 5px #444;
+	font-size: 30px;
+	text-align: center;
+	color: var(--colorLight);
+}
+.after-mail .small{
+	font-size: 16px;
+}
+.sending-mail{
+	background-image: url('../images/loading2.gif');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #000;
+	opacity: 0.8;
+}
 .contact-top, .contact-mid, .contact-bottom{
 	padding: 10px 20px;
+}
+.contact-top{
+	position: relative;
 }
 .contact-mid{
 	height: 200px;

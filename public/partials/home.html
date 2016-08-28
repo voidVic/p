@@ -71,6 +71,8 @@
 					<input-m m-type="textarea" m-row="3" m-label="Message" m-model="homeCtrl.contact.message"></input-m>
 					<input type="button" class="button-m" name="" ng-click="homeCtrl.sendMsg()" value="Send">
 				</form>
+				<div class="after-mail sending-mail" ng-show="homeCtrl.sendingMail"></div>
+				<div class="after-mail" ng-show="homeCtrl.sentMail" ng-bind-html="homeCtrl.mailMsg"></div>
 			</div>
 			<div class="contact-mid" id="contactMap"></div>
 		</div>

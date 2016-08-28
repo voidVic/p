@@ -2,14 +2,19 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
 var smtpTransfer = require('nodemailer-smtp-transport');
+var mg = require('nodemailer-mailgun-transport');
 
-var smtpTransport = nodemailer.createTransport(smtpTransfer({
-  host: "smtp.mail.com",
-  secureConnection: false,
-  port: 587,
+var smtpTransport = nodemailer.createTransport(mg({
+  // host: "smtp.mailgun.org",
+  // secureConnection: false,
+  // port: 587,
+  // auth: {
+  //   user: "Ankit@doglover.com",
+  //   pass: "badisnewgood"
+  // }
   auth: {
-    user: "Ankit@doglover.com",
-    pass: "badisnewgood"
+    api_key: 'key-d4ab303978ad61cd30c86e998d8e5ac3',
+    domain: 'sandbox57673ac294ed41d3aea4c079048f5e1f.mailgun.org'
   }
 }));
 
@@ -24,10 +29,10 @@ var mail = {
     };
     smtpTransport.sendMail(mailOptions, function(err, response){
       if(err){
-        callbackError(err);
+        callbackError({success: false, body: err});
       }else{
-        sendMailToSender(data);
-        callbackSuccess(response);
+        //sendMailToSender(data);
+        callbackSuccess({success: true, body: response});
       }
     });
   }
@@ -51,7 +56,7 @@ var sendMailToSender = function(data){
 }
 
 var writeMailbody = function(data){
-  var body = "Name: "+data.name+"\nEmail: "+data.mail+"\n\nMessage"+data.message;
+  var body = "Hi Vicky, "+data.name+" sent you an Email.\n\n Email : "+data.mail+"\n\nMessage: "+data.message;
   return body;
 }
 

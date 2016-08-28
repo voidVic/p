@@ -10,7 +10,8 @@
     "jade": "~1.6.0",
     "morgan": "~1.3.0",
     "serve-favicon": "~2.1.3",
-    "nodemailer": ""
+    "nodemailer": "",
+    "nodemailer-mailgun-transport": ""
   },
   "scripts": {
     "start": "node ./bin/app"

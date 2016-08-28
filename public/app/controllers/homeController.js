@@ -1,13 +1,34 @@
-app.controller('homeController',['$scope', 'appConstants', 'profileService', function ($scope, appConstants, profileService) {
+app.controller('homeController',['$scope', 'appConstants', 'profileService', '$sce',
+function ($scope, appConstants, profileService, $sce) {
 	var ctrl = this;
 	profileService.showContent = null;
 	ctrl.heading = null;
 	ctrl.isGrayScale = false;
 	ctrl.switchTo = 'Gray Scale';
+	ctrl.sendingMail = false;
+	ctrl.sentMail = false;
 	var hoverDP = document.getElementById('hoverDpDiv');
 
+	var pageResetters = function(){
+		ctrl.sendingMail = false;
+		ctrl.sentMail = false;
+		ctrl.contact.name = "";
+		ctrl.contact.mail = "";
+		ctrl.contact.message = "";
+	}
+
 	ctrl.sendMsg = function(){
-		profileService.sendMail(ctrl.contact);
+		ctrl.sendingMail = true;
+		profileService.sendMail(ctrl.contact, function(){
+			ctrl.sendingMail = false;
+			ctrl.mailMsg = $sce.trustAsHtml("Woohoo!! your message has been sent successfully.");
+			ctrl.sentMail = true;
+			//messageSent();
+		}, function(){
+			ctrl.sendingMail = false;
+			ctrl.mailMsg = $sce.trustAsHtml('<div class="small">Oops!! trouble contanting Mailgun client. Please send mail manually to below Id</div><div><a href="mailto:vicnwz@gmail.com?Subject=Hi%20Ankit" target="_top">vicnwz@gmail.com</a></div>');
+			ctrl.sentMail = true;
+		});
 	}
 
 	ctrl.init = function(){
@@ -49,7 +70,12 @@ app.controller('homeController',['$scope', 'appConstants', 'profileService', fun
 			ctrl.navLinks = profileService.buildPrevArr(profileService.currentNavIndex);
 			ctrl.heading = ctrl.navLinks[profileService.currentNavIndex].name;
 		}
+		pageResetters();
 	});
+
+	var messageSent = function(){
+		setTimeout(function(){ctrl.sentMail = false;}, 3000);
+	}
 
 	var initContactMap = function(){
 		var myCenter = new google.maps.LatLng(12.923097,80.237054);

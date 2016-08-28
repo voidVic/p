@@ -85,15 +85,17 @@ app.factory('profileService',['appConstants', '$timeout', '$http', function(appC
 		}
 	}
 
-	profileService.sendMail = function(contact){
+	profileService.sendMail = function(contact, cbs, cbe){
 		$http({
 			url: "sendMail",
 			method: "POST",
 			data: contact
 		})
 		.then(function(data){
-			console.log(data);
-		}, function(err){console.log(err);});
+			console.log(data.data.message.success);
+			if(data.data.message.success) cbs();
+			if(!data.data.message.success) cbe();
+		}, function(err){console.log(err); cbe();});
 	}
 
 	profileService.buildPrevArr = function(index){
