@@ -10,7 +10,7 @@ var smtpTransport = nodemailer.createTransport(mg({
   // port: 587,
   // auth: {
   //   user: "Ankit@doglover.com",
-  //   pass: "badisnewgood"
+  //   pass: ""
   // }
   auth: {
     api_key: 'key-d4ab303978ad61cd30c86e998d8e5ac3',
