@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Ankit Sharma Personal Profile",
   "engines": {
-    "node": "5.6.0",
+    "node": "3.0.0",
     "npm": "3.6.0"
   },
   "dependencies": {
