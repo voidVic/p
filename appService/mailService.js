@@ -1,8 +1,8 @@
 
 var express = require('express');
 var nodemailer = require('nodemailer');
-var smtpTransfer = require('nodemailer-smtp-transport');
-var mg = require('nodemailer-mailgun-transport');
+//var smtpTransfer = require('nodemailer-smtp-transport');
+//var mg = require('nodemailer-mailgun-transport');
 
 var smtpTransport = nodemailer.createTransport(mg({
   // host: "smtp.mailgun.org",
