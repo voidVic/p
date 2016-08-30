@@ -10,16 +10,16 @@ router.get('/', function(req, res) {
 /*Mailer route*/
 router.post('/sendMail', function(req, res){
   var contact = req.body;
-  mailService.send(contact, function(data){
+ /* mailService.send(contact, function(data){
     res.json({"message": data});
   }, function(data){
     //console.log(data);
     res.json({"message": data});
-  });
+  });*/
   /*testing msg, without actual mail*/
-//   setTimeout(function(){
-//   res.json({"message": {success: true, body: null}});
-// }, 3000);
+ setTimeout(function(){
+   res.json({"message": {success: false, body: null}});
+ }, 500);
 
 });
 
